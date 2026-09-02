@@ -102,10 +102,10 @@ if (isLocalHost) {
 }
 
 // If we are running on github.io or another external static host, use the deployed API.
-const isStaticHost = !isLocalHost && !window.location.hostname.endsWith('run.app');
+const isStaticHost = !isLocalHost && !window.location.hostname.endsWith('run.app') && !window.location.hostname.endsWith('railway.app');
 if (isStaticHost) {
-  if (!apiBaseUrl || !apiBaseUrl.startsWith('http') || apiBaseUrl.includes('github.io')) {
-    apiBaseUrl = 'https://ais-pre-nb4npqqpifsrgpfbtsi7oz-388901922470.us-east1.run.app';
+  if (!apiBaseUrl || !apiBaseUrl.startsWith('http') || apiBaseUrl.includes('github.io') || apiBaseUrl.includes('run.app')) {
+    apiBaseUrl = 'https://studia-production-3255.up.railway.app';
     localStorage.setItem('api_base_url', apiBaseUrl);
   }
 }
